@@ -25,6 +25,7 @@ Start the app in the `dev` environment:
 npm start
 ```
 
+you will need to run mavsdk_server on port 50000 for the app to connect. 
 ## Packaging for Production
 
 To package apps for the local platform:
@@ -35,10 +36,7 @@ npm run package
 
 ## Maintainers
 
-- [Daniel Honies] (https://github.com/danielhonies)
-- [John Tran](https://github.com/jooohhn)
-- [C. T. Lin](https://github.com/chentsulin)
-- [Jhen-Jie Hong](https://github.com/jhen0409)
+- [Daniel Honies](https://github.com/danielhonies)
 
 ## License
 
