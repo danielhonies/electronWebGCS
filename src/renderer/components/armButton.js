@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlay } from '@fortawesome/free-solid-svg-icons';
 const Button = styled.button`
   color: darkred;
   font-size: 1em;
@@ -25,7 +26,7 @@ function ArmButton() {
     return (
         <div>
             <Button
-                onClick={() => ArmDrone()}>Arm Drone</Button>
+                onClick={() => ArmDrone()}><FontAwesomeIcon icon={faPlay} color="black"/></Button>
         </div>
     )
 }

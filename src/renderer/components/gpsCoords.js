@@ -92,10 +92,11 @@ function GpsCoords() {
 
     return (
         <div>
-            <PrettyText>{gpsPos.latitude_deg.toFixed(4)}, {gpsPos.longitude_deg.toFixed(4)}, {gpsPos.absolute_altitude_m.toFixed(2)}</PrettyText>
+            
             <div>
                 <div ref={mapContainer} className="map-container" />
             </div>
+            <PrettyText id="coordinates">{gpsPos.latitude_deg.toFixed(4)}, {gpsPos.longitude_deg.toFixed(4)}, {gpsPos.absolute_altitude_m.toFixed(2)}</PrettyText>
         </div>
         
     )

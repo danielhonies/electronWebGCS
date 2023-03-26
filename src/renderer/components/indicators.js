@@ -35,11 +35,11 @@ function Indicators(){
 
 
   	return (
-	  	<>
-			<HeadingIndicator heading={heading.heading_deg} showBox={true} />
+	  	<div id="indicators">
+			<HeadingIndicator heading={heading.heading_deg} showBox={false} />
 
 			<AttitudeIndicator roll={attitude.roll_deg} pitch={attitude.pitch_deg} showBox={false} />
-	  	</>
+	  	</div>
   	)
 }
 

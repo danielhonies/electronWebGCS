@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStop } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 
 const Button = styled.button`
@@ -27,7 +28,7 @@ function DisarmButton() {
     return (
         <div>
             <Button
-                onClick={() => DisarmDrone()}>Disarm Drone</Button>
+                onClick={() => DisarmDrone()}><FontAwesomeIcon icon={faStop} color="black"/></Button>
         </div>
     )
 }

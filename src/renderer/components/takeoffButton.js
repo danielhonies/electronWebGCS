@@ -1,6 +1,9 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlaneDeparture } from '@fortawesome/free-solid-svg-icons';
 import React, { useState } from 'react';
 
 import styled from 'styled-components';
+
 
 const Button = styled.button`
   color: orange;
@@ -26,8 +29,9 @@ function TakeoffButton() {
 
     return (
         <div>
-            <Button
-                onClick={() => TakeoffDrone()}>Takeoff Drone</Button>
+            
+            <Button id="takeoff"
+                onClick={() => TakeoffDrone()}> <FontAwesomeIcon icon={faPlaneDeparture} color="black"/></Button>
         </div>
     )
 }

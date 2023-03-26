@@ -11,17 +11,21 @@ import Indicators from './components/indicators';
 import Hud from './components/hud';
 
 
+
+
 function FlightView() {
   return (
     <div>
       <div className="FlightView">
-      <ArmButton />
-      <DisarmButton/>
-      <TakeoffButton/>
-      <LandButton/>
-      
-      <Indicators/>
-      <Hud/>
+        <GpsCoords/>
+        <div id='buttons'>
+        <ArmButton />
+        <DisarmButton/>
+        <TakeoffButton/>
+        <LandButton/>
+        </div>
+        <Indicators/>
+        {/* <Hud/> */}
 
       </div>
     </div>

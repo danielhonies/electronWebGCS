@@ -3,13 +3,14 @@
  *        See https://github.com/webpack-contrib/sass-loader#imports
  */
 body {
-  position: relative;
-  color: white;
-  height: 100vh;
   
-  font-family: sans-serif;
+  
+  /* height: 100vh; */
   overflow-y: hidden;
-  display: flex;
+  font-family: sans-serif;
+  overflow-x: hidden;
+  /* overflow-y: hidden; */
+  /* display: flex; */
   justify-content: center;
   align-items: center;
 }
@@ -21,15 +22,14 @@ button {
   border: none;
   appearance: none;
   font-size: 1.3rem;
-  box-shadow: 0px 8px 28px -6px rgba(24, 39, 75, 0.12),
-    0px 18px 88px -4px rgba(24, 39, 75, 0.14);
+  margin: 10px !important; 
   transition: all ease-in 0.1s;
   cursor: pointer;
   opacity: 0.9;
 }
 
 button:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
   opacity: 1;
 }
 
@@ -41,7 +41,7 @@ a {
   text-decoration: none;
   height: fit-content;
   width: fit-content;
-  margin: 10px;
+  
 }
 
 a:hover {
@@ -49,9 +49,49 @@ a:hover {
   text-decoration: none;
 }
 
-.Hello {
-  display: flex;
+.FlightView {
+  
   justify-content: center;
   align-items: center;
-  margin: 20px 0;
+}
+
+.map-container {
+  z-index: -0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+    height: 100vw;
+  }
+
+#buttons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flexbox;
+  justify-content: center;
+  align-items: center;
+}
+#indicators {
+  position: absolute;
+  margin: 5px;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.instrument{
+  height: 150px !important;
+  width: 150px !important;
+}
+
+#coordinates{
+  background-color: white;
+  opacity: 0.9 ;
+  position: absolute;
+  margin: 10px;
+  bottom: -0px;
+  left: 0;
+  z-index: 1;
 }
