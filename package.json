@@ -95,12 +95,26 @@
     }
   },
   "dependencies": {
+    "@grpc/grpc-js": "^1.8.13",
+    "@mapbox/togeojson": "^0.16.0",
+    "cors": "^2.8.5",
     "electron-debug": "^3.2.0",
     "electron-log": "^4.4.8",
     "electron-updater": "^5.3.0",
+    "esri-loader": "^3.7.0",
+    "express": "^4.18.2",
+    "leaflet": "^1.9.3",
+    "leaflet-omnivore": "^0.3.4",
+    "mapbox": "^1.0.0-beta10",
+    "mapbox-gl": "^2.13.0",
+    "omnivore": "^0.0.2",
     "react": "^18.2.0",
+    "react-arcgis": "^3.3.3",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.8.1"
+    "react-drone-hud": "^0.0.1-rc0",
+    "react-router-dom": "^6.8.1",
+    "react-typescript-flight-indicators": "^1.0.3",
+    "styled-components": "^5.3.9"
   },
   "devDependencies": {
     "@electron/notarize": "^1.2.3",
