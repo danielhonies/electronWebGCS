@@ -1,35 +1,35 @@
 {
-  "description": "A foundation for scalable desktop apps",
+  "description": "An electron based PX4 Ground Control Station",
   "keywords": [
     "electron",
-    "boilerplate",
+    "PX4",
     "react",
-    "typescript",
+    "mavlink",
     "ts",
     "sass",
     "webpack",
     "hot",
     "reload"
   ],
-  "homepage": "https://github.com/electron-react-boilerplate/electron-react-boilerplate#readme",
+  "homepage": "https://github.com/danielhonies/electronWebGCSreadme",
   "bugs": {
-    "url": "https://github.com/electron-react-boilerplate/electron-react-boilerplate/issues"
+    "url": "https://github.com/danielhonies/electronWebGCS/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/electron-react-boilerplate/electron-react-boilerplate.git"
+    "url": "git+https://github.com/danielhonies/electronWebGCS.git"
   },
   "license": "MIT",
   "author": {
-    "name": "Electron React Boilerplate Maintainers",
-    "email": "electronreactboilerplate@gmail.com",
-    "url": "https://electron-react-boilerplate.js.org"
+    "name": "Daniel Honies",
+    "email": "daniel.honies@gmail.com",
+    "url": "https://github.com/danielhonies"
   },
   "contributors": [
     {
-      "name": "Amila Welihinda",
-      "email": "amilajack@gmail.com",
-      "url": "https://github.com/amilajack"
+      "name": "Daniel Honies",
+      "email": "daniel.honies@gmail.com",
+      "url": "https://github.com/danielhonies"
     }
   ],
   "main": "./src/main/main.ts",
@@ -251,9 +251,6 @@
       "owner": "danielhonies",
       "repo": "electronWebGCS"
     }
-  },
-  "collective": {
-    "url": "https://opencollective.com/electron-react-boilerplate-594"
   },
   "devEngines": {
     "node": ">=14.x",
