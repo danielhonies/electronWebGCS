@@ -2,7 +2,8 @@ const grpc = require('@grpc/grpc-js');
 const protoLoader = require('@grpc/proto-loader');
 import path from 'path';
 
-const MAVSDK_ACTION_PROTO_PATH = path.join(path.dirname(__dirname), '/MAVSDK-Proto/protos/action/action.proto');
+
+const MAVSDK_ACTION_PROTO_PATH = path.join(path.dirname(require.resolve('mavsdk-proto')), '/protos/action/action.proto');
 console.log(MAVSDK_ACTION_PROTO_PATH);
 const ACTION_PACKAGE_DEFINITION = protoLoader.loadSync(
     MAVSDK_ACTION_PROTO_PATH,
@@ -14,7 +15,7 @@ const ACTION_PACKAGE_DEFINITION = protoLoader.loadSync(
     });
 
 
-var MAVSDK_TELEMETRY_PROTO_PATH = path.join(path.dirname(__dirname), '/MAVSDK-Proto/protos/telemetry/telemetry.proto');
+var MAVSDK_TELEMETRY_PROTO_PATH = path.join(path.dirname(require.resolve('mavsdk-proto')), '/protos/telemetry/telemetry.proto');
 console.log(MAVSDK_TELEMETRY_PROTO_PATH);
 const TELEMTRY_PACKAGE_DEFINITION = protoLoader.loadSync(
     MAVSDK_TELEMETRY_PROTO_PATH,
