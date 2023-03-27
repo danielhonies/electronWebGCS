@@ -13,7 +13,7 @@ import Hud from './components/hud';
 import NavBar from './components/navBar';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import BatteryBar from './components/batteryBar';
-
+import RTLButton from './components/rtlButton';
 
 function FlightView() {
   return (
@@ -27,6 +27,7 @@ function FlightView() {
           <DisarmButton/>
           <TakeoffButton/>
           <LandButton/>
+          <RTLButton/>
         </ButtonGroup>
        
         <Indicators/>
