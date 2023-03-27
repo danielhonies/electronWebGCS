@@ -100,4 +100,8 @@ a:hover {
 /* progress bar change radius */
 .progress{
   --bs-progress-border-radius: 0px !important;
+  position: absolute;
+  top: 65px;
+  width: 100%;
+  z-index: 1;
 }

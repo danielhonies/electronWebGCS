@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 import omnivore from 'leaflet-omnivore';
 import toGeoJSON from 'togeojson';
+import { Modal } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 //import  kmltext  from '../test_waypoints.kml';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGFuaWVsaG9uaWVzIiwiYSI6ImNrOGVvb2FiYzAzNGszbXRwdDEyNDlpcXoifQ.O-1QpnP-e9XEqRbCruhUwA';
@@ -26,6 +28,7 @@ const DEFAULT_POSITION_STATE = {"latitude_deg":0,"longitude_deg":0,"absolute_alt
 function GpsCoords() {
 
     const [gpsPos, setGpsPos] = useState(DEFAULT_POSITION_STATE)
+    
     const mapContainer = useRef(null);
     const map = useRef(null);
     var [lng, setLng] = useState(-121.996);
@@ -33,6 +36,23 @@ function GpsCoords() {
     const [zoom, setZoom] = useState(15);
     const mark = useRef(null);
     const kml2 = useRef(null);
+
+    
+    const [goToPos, setGoToPos] = useState(DEFAULT_POSITION_STATE)
+    const [showGoto, setShowGoto] = useState(false);
+    const handleClose = () => setShowGoto(false);
+    const handleCloseConfirm = () => {
+        console.log(goToPos);
+                fetch('http://localhost:8081/goto?longitude_deg=' + goToPos.lngLat.lng.toFixed(6) +'&latitude_deg=' + goToPos.lngLat.lat.toFixed(6) + '&altitude_m=20&yaw_deg=0', {
+            method: 'GET',
+            headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            },
+        });
+        setShowGoto(false);
+    }
+    const handleShow = (e) =>{ setGoToPos(e), setShowGoto(true);};
 
     useEffect( () => {
         
@@ -81,15 +101,8 @@ function GpsCoords() {
         });*/
         
         map.current.on('click', function(e)  {
-            console.log(e.lngLat);
-                fetch('http://localhost:8081/goto?longitude_deg=' + e.lngLat.lng.toFixed(6) +'&latitude_deg=' + e.lngLat.lat.toFixed(6) + '&altitude_m=20&yaw_deg=0', {
-            method: 'GET',
-            headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-            },
-        });
-    });
+            handleShow(e);
+            });
 
         });
 
@@ -109,6 +122,20 @@ function GpsCoords() {
                 <div ref={mapContainer} className="map-container" />
             </div>
             <PrettyText id="coordinates">{gpsPos.latitude_deg.toFixed(4)}, {gpsPos.longitude_deg.toFixed(4)}, {gpsPos.absolute_altitude_m.toFixed(2)}</PrettyText>
+            <Modal show={showGoto} onHide={handleClose} >
+        <Modal.Header closeButton>
+          <Modal.Title>Arm</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Confirm GoTo. Drone will move to Point you clicked on!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="dark" onClick={handleCloseConfirm}>
+            GoTo!
+          </Button>
+        </Modal.Footer>
+      </Modal>
         </div>
         
     )

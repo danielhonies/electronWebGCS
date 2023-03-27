@@ -7,7 +7,7 @@ import GPSInfo from './satellite';
 import RSSIInfo from './rssi';
 function NavBar() {
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
       <Container>
       <Nav className="me-auto">
       <NavDropdown title="Fly" id="basic-nav-dropdown">
