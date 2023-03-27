@@ -40,9 +40,13 @@ class MAVSDKDrone {
         this.position = {} // Initialize to an empty object
         this.attitudeEuler = {} // Initialize to an empty object
         this.heading = {}
+        this.gpsInfo = {}
+        this.battery = {}
+        this.SubscribeToBattery()
         this.SubscribeToGps()
         this.SubscribeToAttitudeEuler()
         this.SubscribeToHeading()
+        this.SubscribeToGpsInfo()
     }
 
 
@@ -123,6 +127,56 @@ class MAVSDKDrone {
             return;
         });
         this.GpsCall.on('status', function(status) {
+            console.log(status);
+            return;
+        });
+    }
+
+    SubscribeToBattery(){
+        const self = this;
+
+        this.BatteryCall = this.TelemetryClient.subscribeBattery({});
+
+        this.BatteryCall.on('data', function(batteryInfoResponse){
+            self.battery = batteryInfoResponse.battery
+            return; 
+        });
+
+        this.BatteryCall.on('end', function() {
+            console.log("SubscribeBattery request ended");
+            return;
+        });
+
+        this.BatteryCall.on('error', function(e) {
+            console.log(e)
+            return;
+        });
+        this.BatteryCall.on('status', function(status) {
+            console.log(status);
+            return;
+        });
+    }
+    SubscribeToGpsInfo()
+    {
+        const self = this;
+
+        this.GpsInfoCall = this.TelemetryClient.subscribeGpsInfo({});
+
+        this.GpsInfoCall.on('data', function(gpsInfoResponse){
+            self.gpsInfo = gpsInfoResponse.gps_info
+            return; 
+        });
+
+        this.GpsInfoCall.on('end', function() {
+            console.log("SubscribeGpsInfo request ended");
+            return;
+        });
+
+        this.GpsInfoCall.on('error', function(e) {
+            console.log(e)
+            return;
+        });
+        this.GpsInfoCall.on('status', function(status) {
             console.log(status);
             return;
         });

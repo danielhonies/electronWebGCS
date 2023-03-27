@@ -2,19 +2,36 @@ import BatteryGauge from 'react-battery-gauge'
 import { Button } from 'react-bootstrap';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 
-
+const GPSINFO_REST_ENDPOINT = "http://localhost:8081/battery"  
     
 
 function BatteryDisplay() {
+
+    const [battery, setBattery] = useState({});
+    useEffect( () => {
+        
+      const timer = setInterval(async () => {
+          const res = await fetch(GPSINFO_REST_ENDPOINT);
+          const newBattery = await res.json();
+          console.log(newBattery);
+          setBattery(newBattery);
+         
+      }, 100);
+
+      return () => clearInterval(timer);
+  },[]);
+  
+
     const renderTooltip = (props) => (
         <Tooltip id="button-tooltip" {...props}>
-        Cell Voltage 1: 3.7V
-        <br />
-        Cell Voltage 2: 3.7V
+        Voltage: {battery.voltage_v.toFixed(2)}
         </Tooltip>
       );
+      
     return (
         <OverlayTrigger
       placement="bottom"
@@ -22,7 +39,7 @@ function BatteryDisplay() {
       overlay={renderTooltip} 
       >
         <Button variant='dark'>
-        <BatteryGauge value={40} size={70} animated={true} customization={{ batteryMeter: {
+        <BatteryGauge value={battery.remaining_percent} size={70} animated={true} customization={{ batteryMeter: {
             noOfCells: 10
           }, readingText: {darkContrastColor:'#111', fontSize: 17},
         batteryBody: {

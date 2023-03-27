@@ -68,6 +68,17 @@ app.get('/gps', function(req, res){
     res.send(drone.position)
 });
 
+app.get('/gpsInfo', function(req, res){
+
+    //console.log("Hellooo from gps!")
+    res.send(drone.gpsInfo)
+});
+
+app.get('/battery', function(req, res){
+    //console.log("Hellooo from battery!")
+    res.send(drone.battery)
+});
+
 app.get('/attitudeEuler', function(req, res){
     
     res.send(drone.attitudeEuler)
