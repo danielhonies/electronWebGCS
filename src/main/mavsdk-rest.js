@@ -118,6 +118,12 @@ app.get('/inAir', function(req, res){
 
 });
 
+app.get('/rcStatus', function(req, res){
+
+    res.send(drone.rcStatus)
+
+});
+
 server.listen(8081, function () {
     var host = server.address().address
     var port = server.address().port

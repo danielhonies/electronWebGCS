@@ -53,6 +53,7 @@ class MAVSDKDrone {
         this.SubscribeToArmed()
         this.SubscribeToInAir()
         this.SubscribeToHealth()
+        this.SubscribeToRcStatus()
     }
 
 
@@ -254,6 +255,7 @@ class MAVSDKDrone {
         this.RcStatusCall = this.TelemetryClient.subscribeRcStatus({});
 
         this.RcStatusCall.on('data', function(rcStatusResponse){
+            console.log(rcStatusResponse);
             self.rcStatus = rcStatusResponse.rc_status
             return; 
         });
