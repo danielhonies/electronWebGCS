@@ -29,7 +29,7 @@ function RSSIInfo() {
     return (
         <OverlayTrigger
       placement="bottom"
-      delay={{ show: 0, hide: 400 }}
+      delay={{ show: 0, hide: 250 }}
       overlay={renderTooltip} 
       >
         <Button variant='dark' disabled={!rcStatus.is_available} >
