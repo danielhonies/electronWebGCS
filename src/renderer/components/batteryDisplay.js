@@ -24,16 +24,16 @@ function BatteryDisplay() {
         <Button variant='dark'>
         <BatteryGauge value={40} size={70} animated={true} customization={{ batteryMeter: {
             noOfCells: 10
-          }, readingText: {darkContrastColor:'#111', fontSize: 16},
+          }, readingText: {darkContrastColor:'#111', fontSize: 17},
         batteryBody: {
-            strokeColor: 'silver',
-            fill: 'silver'
+            strokeColor: 'white',
+            fill: 'white'
         },
         batteryCap: {
             capToBodyRatio: 0.4,
             cornerRadius: 3,
-            fill: 'silver',
-            strokeColor: 'silver'
+            fill: 'white',
+            strokeColor: 'white'
           },}} />
           </Button>
           </OverlayTrigger>

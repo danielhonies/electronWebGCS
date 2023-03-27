@@ -14,6 +14,7 @@ import NavBar from './components/navBar';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import BatteryBar from './components/batteryBar';
 import RTLButton from './components/rtlButton';
+import CheckList from './components/checkList';
 
 function FlightView() {
   return (
@@ -23,6 +24,7 @@ function FlightView() {
         <BatteryBar/>
         <GpsCoords/>
         <ButtonGroup vertical id='buttons' >
+          <CheckList />
           <ArmButton />
           <DisarmButton/>
           <TakeoffButton/>

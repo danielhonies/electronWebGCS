@@ -8,7 +8,7 @@ import RSSIInfo from './rssi';
 function NavBar() {
   return (
     <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
-      <Container>
+      
       <Nav className="me-auto">
       <NavDropdown title="Fly" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Settings</NavDropdown.Item>
@@ -35,7 +35,7 @@ function NavBar() {
         <RSSIInfo />
         <GPSInfo />
         <BatteryDisplay />
-      </Container>
+      
     </Navbar>
   );
 }
