@@ -17,7 +17,6 @@ function BatteryDisplay() {
       const timer = setInterval(async () => {
           const res = await fetch(GPSINFO_REST_ENDPOINT);
           const newBattery = await res.json();
-          console.log(newBattery);
           setBattery(newBattery);
          
       }, 100);

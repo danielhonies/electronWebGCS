@@ -61,6 +61,13 @@ app.get('/land', function(req, res){
 
 });
 
+app.get('/returnToLaunch', function(req, res){
+    
+    
+    drone.ReturnToLaunch()
+
+    res.sendStatus(200);
+});
 
 app.get('/gps', function(req, res){
 

@@ -18,7 +18,7 @@ function RSSIInfo() {
       delay={{ show: 0, hide: 400 }}
       overlay={renderTooltip} 
       >
-        <Button variant='dark'>
+        <Button variant='dark'  >
         <FontAwesomeIcon icon={faGamepad} color="white"/>
         <FontAwesomeIcon icon={faSignal} color="white"/>
           </Button>

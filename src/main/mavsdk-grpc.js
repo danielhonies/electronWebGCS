@@ -89,7 +89,14 @@ class MAVSDKDrone {
             }
         });
     }
-
+    ReturnToLaunch(){
+        this.ActionClient.returnToLaunch({}, function(err, actionResponse){
+            if(err){
+                console.log("Unable to return to launch: ", err);
+                return;
+            }
+        });
+    }
     Goto(longitude_deg, latitude_deg, altitude_m, yaw_deg)
     {
         this.ActionClient.GotoLocation({
