@@ -1,16 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStop } from '@fortawesome/free-solid-svg-icons';
-import styled from 'styled-components';
-
-const Button = styled.button`
-  color: blue;
-  font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border: 2px solid darkred;
-  border-radius: 3px;
-`;
+import { Button } from 'react-bootstrap';
 
 function DisarmDrone() {
     fetch('http://localhost:8081/disarm', {
@@ -26,10 +17,10 @@ function DisarmDrone() {
 function DisarmButton() {    
 
     return (
-        <div>
-            <Button
-                onClick={() => DisarmDrone()}><FontAwesomeIcon icon={faStop} color="black"/></Button>
-        </div>
+      
+            <Button variant="dark"
+                onClick={() => DisarmDrone()}><FontAwesomeIcon icon={faStop} color="white"/></Button>
+     
     )
 }
 

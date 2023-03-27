@@ -4,11 +4,19 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import BatteryDisplay from './batteryDisplay'
 import GPSInfo from './satellite';
+import RSSIInfo from './rssi';
 function NavBar() {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand href="#home">GCS</Navbar.Brand>
+      <Nav className="me-auto">
+      <NavDropdown title="Fly" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Settings</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                Logs
+              </NavDropdown.Item>
+            </NavDropdown>
+        </Nav>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -24,6 +32,7 @@ function NavBar() {
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
+        <RSSIInfo />
         <GPSInfo />
         <BatteryDisplay />
       </Container>

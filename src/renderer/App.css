@@ -66,7 +66,8 @@ a:hover {
 
 #buttons {
   position: absolute;
-  top: 50px;
+  margin: 5px;
+  top: 70px;
   left: 0;
   z-index: 1;
   display: flexbox;

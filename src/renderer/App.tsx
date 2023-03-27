@@ -11,22 +11,23 @@ import GpsCoords from './components/gpsCoords';
 import Indicators from './components/indicators';
 import Hud from './components/hud';
 import NavBar from './components/navBar';
-
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
 
 
 function FlightView() {
   return (
     <div>
-      <div className="FlightView">
+      <div className="FlightView" >
         <NavBar/>
         <GpsCoords/>
-        <div id='buttons'>
-        <ArmButton />
-        <DisarmButton/>
-        <TakeoffButton/>
-        <LandButton/>
-        </div>
+        <ButtonGroup vertical id='buttons' >
+          <ArmButton />
+          <DisarmButton/>
+          <TakeoffButton/>
+          <LandButton/>
+        </ButtonGroup>
+       
         <Indicators/>
         {/* <Hud/> */}
 
