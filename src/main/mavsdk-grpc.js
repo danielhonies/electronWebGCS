@@ -42,11 +42,17 @@ class MAVSDKDrone {
         this.heading = {}
         this.gpsInfo = {}
         this.battery = {}
+        this.rcStatus = {}
+        this.inAir = {}
+        this.armed = {}
         this.SubscribeToBattery()
         this.SubscribeToGps()
         this.SubscribeToAttitudeEuler()
         this.SubscribeToHeading()
         this.SubscribeToGpsInfo()
+        this.SubscribeToArmed()
+        this.SubscribeToInAir()
+        this.SubscribeToHealth()
     }
 
 
@@ -236,6 +242,104 @@ class MAVSDKDrone {
             return;
         });
         this.HeadingCall.on('status', function(status) {
+            console.log(status);
+            return;
+        });
+    }
+
+    SubscribeToRcStatus()
+    {
+        const self = this;
+
+        this.RcStatusCall = this.TelemetryClient.subscribeRcStatus({});
+
+        this.RcStatusCall.on('data', function(rcStatusResponse){
+            self.rcStatus = rcStatusResponse.rc_status
+            return; 
+        });
+
+        this.RcStatusCall.on('end', function() {
+            console.log("SubscribeRcStatus request ended");
+            return;
+        });
+
+        this.RcStatusCall.on('error', function(e) {
+            console.log(e)
+            return;
+        });
+        this.RcStatusCall.on('status', function(status) {
+            console.log(status);
+            return;
+        });
+    }
+    SubscribeToArmed(){
+        const self = this;
+
+        this.ArmedCall = this.TelemetryClient.subscribeArmed({});
+
+        this.ArmedCall.on('data', function(armedResponse){
+            self.armed = armedResponse
+            return; 
+        });
+
+        this.ArmedCall.on('end', function() {
+            console.log("SubscribeArmed request ended");
+            return;
+        });
+
+        this.ArmedCall.on('error', function(e) {
+            console.log(e)
+            return;
+        });
+        this.ArmedCall.on('status', function(status) {
+            console.log(status);
+            return;
+        });
+    }
+    SubscribeToHealth(){
+        const self = this;
+
+        this.HealthCall = this.TelemetryClient.subscribeHealth({});
+
+        this.HealthCall.on('data', function(healthResponse){
+            self.health = healthResponse.health
+            return; 
+        });
+
+        this.HealthCall.on('end', function() {
+            console.log("SubscribeHealth request ended");
+            return;
+        });
+
+        this.HealthCall.on('error', function(e) {
+            console.log(e)
+            return;
+        });
+        this.HealthCall.on('status', function(status) {
+            console.log(status);
+            return;
+        });
+    }
+    SubscribeToInAir(){
+        const self = this;
+
+        this.InAirCall = this.TelemetryClient.subscribeInAir({});
+
+        this.InAirCall.on('data', function(inAirResponse){
+            self.inAir = inAirResponse
+            return; 
+        });
+
+        this.InAirCall.on('end', function() {
+            console.log("SubscribeInAir request ended");
+            return;
+        });
+
+        this.InAirCall.on('error', function(e) {
+            console.log(e)
+            return;
+        });
+        this.InAirCall.on('status', function(status) {
             console.log(status);
             return;
         });

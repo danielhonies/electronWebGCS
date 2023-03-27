@@ -3,6 +3,9 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { Button } from 'react-bootstrap';
 import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
+import { useEffect } from 'react';
+
+const ARMED_REST_ENDPOINT = "http://localhost:8081/armed"
 
 function ArmDrone() {
     fetch('http://localhost:8081/arm', {
@@ -25,8 +28,21 @@ function ArmButton() {
   }
   const handleShow = () => setShow(true);
 
+  const [armed, setArmed] = useState({});
+  useEffect( () => {
+      
+    const timer = setInterval(async () => {
+        const res = await fetch(ARMED_REST_ENDPOINT);
+        const newArmed = await res.json();
+        setArmed(newArmed);
+       
+    }, 100);
+
+    return () => clearInterval(timer);
+},[]);
+
     return (
-<>            <Button variant="dark"
+<>            <Button variant="dark" hidden={armed.is_armed}
                 onClick={handleShow}><FontAwesomeIcon icon={faPlay} color="white"/>
             </Button>
       <Modal show={show} onHide={handleClose} >

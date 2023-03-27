@@ -100,6 +100,24 @@ app.get('/goto', function(req, res){
     res.sendStatus(200);
 });
 
+app.get('/health', function(req, res){
+   
+    res.send(drone.health)
+
+});
+
+app.get('/armed', function(req, res){
+
+    res.send(drone.armed)
+
+});
+
+app.get('/inAir', function(req, res){
+
+    res.send(drone.inAir)
+
+});
+
 server.listen(8081, function () {
     var host = server.address().address
     var port = server.address().port
