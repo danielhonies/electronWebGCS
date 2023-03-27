@@ -12,7 +12,7 @@ import Indicators from './components/indicators';
 import Hud from './components/hud';
 import NavBar from './components/navBar';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
-
+import BatteryBar from './components/batteryBar';
 
 
 function FlightView() {
@@ -20,6 +20,7 @@ function FlightView() {
     <div>
       <div className="FlightView" >
         <NavBar/>
+        <BatteryBar/>
         <GpsCoords/>
         <ButtonGroup vertical id='buttons' >
           <ArmButton />

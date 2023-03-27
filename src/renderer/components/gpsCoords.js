@@ -53,8 +53,20 @@ function GpsCoords() {
         center: [lng, lat],
         zoom: zoom
         });
+        
         mark.current = new mapboxgl.Marker().setLngLat([gpsPos.longitude_deg, gpsPos.latitude_deg]).addTo(map.current);
+        // set marker icon to font awesome icon
+        
+        
+       
 
+        // load kml into map
+        /*var kmlLayer = omnivore.kml(kmltext).addTo(map.current);
+        kmlLayer.eachLayer(function(layer) {
+            if(layer.feature.geometry.type != "Point") return;
+            console.log(layer.feature.geometry.coordinates[0]);
+            new mapboxgl.Marker().setLngLat([layer.feature.geometry.coordinates[0], layer.feature.geometry.coordinates[1]]).addTo(map.current);
+        });*/
         /*fetch(kmltext)
             .then(r => r.text())
             .then(text => {

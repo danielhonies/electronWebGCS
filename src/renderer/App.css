@@ -67,7 +67,7 @@ a:hover {
 #buttons {
   position: absolute;
   margin: 5px;
-  top: 70px;
+  top: 80px;
   left: 0;
   z-index: 1;
   display: flexbox;
@@ -77,7 +77,7 @@ a:hover {
 #indicators {
   position: absolute;
   margin: 5px;
-  top: 50px;
+  top: 70px;
   right: 0;
   z-index: 1;
 }
@@ -95,4 +95,9 @@ a:hover {
   bottom: -0px;
   left: 0;
   z-index: 1;
+}
+
+/* progress bar change radius */
+.progress{
+  --bs-progress-border-radius: 0px !important;
 }
