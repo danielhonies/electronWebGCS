@@ -119,6 +119,7 @@
     "react-bootstrap": "^2.7.2",
     "react-dom": "^18.2.0",
     "react-drone-hud": "^0.0.1-rc0",
+    "react-gamepads": "^1.0.0",
     "react-router-dom": "^6.8.1",
     "react-typescript-flight-indicators": "^1.0.3",
     "styled-components": "^5.3.9"
